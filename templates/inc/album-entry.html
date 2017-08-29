@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-sm-6">
+    {% set image = entry.cover.first() %}
+    {% if image %}
+          <img class="img-responsive" src="{{ image.url() }}" alt="{{ image.title }}">
+     {% endif %} 
+
+  </div>
+  <div class="col-sm-6 album-container">
+      <h1 class="album-heading">{{ entry.title }}</h1>
+        <span class="small">{{ entry.releaseDate  | date('M Y')}}</span>
+        {{entry.trackList}}
+    <div class="row">
+
+        <div class="col-md-6 album-btn text-right">
+            <div class="btn-group">
+              <button type="button" class="btn btn-danger">{% for block in entry.purchaseLinks.type('purchaseLink').limit(1) %}<a href="{{ block.purchaseUrl }}" target="_blank">PURCHASE</a>
+                {% endfor %}</button>
+              <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu">
+               {% for block in entry.purchaseLinks.type('purchaseLink') %}
+                <li><a href="{{ block.purchaseUrl }}" target="_blank">{{ block.purchaseName }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+        </div>
+    </div>
+  </div>
+
+</div>

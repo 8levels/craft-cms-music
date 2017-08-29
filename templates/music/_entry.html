@@ -1,0 +1,38 @@
+{#
+ # Music template
+ # -----------------
+ #
+
+-#}
+
+{% extends "_layout" %}
+{% set title = "Music" %}
+
+{% block body %}
+
+
+<section class="footer-over music">  
+  <div class="container">
+   
+<!--   music top entry-->
+
+   
+    {% include "inc/album-entry" %}
+      
+
+<!--    /music top entry-->
+    
+    
+{% include "inc/album-list" %}
+  </div>
+ </section> 
+
+{% endblock %}
+
+
+{% block footer %}
+{{ parent() }}
+<script>
+//blah-blah   
+</script>
+{% endblock %}

@@ -1,0 +1,28 @@
+{#
+ # Tour template
+ # -----------------
+ #
+
+-#}
+
+{% extends "_layout" %}
+{% set title = "Tour & Tickets" %}
+
+{% block body %}
+
+
+    {% for entry in craft.entries.section('tour').order('date asc') if entry.date > now %}
+         {{ entry.date.format('D') }} {{ entry.date.format('d') }}<br>
+        {{ entry.date.format('M') }}<br>
+        {{ entry.date.format('Y') }}<br>
+        {{ entry.venue }}<br>
+        {{ entry.title }}<br>
+        <a href="{{ entry.ticketUrl }}" class="tickets">TICKETS</a>
+    {% endfor %} 
+      <div class="col-lg-3 col hidden-xs hidden-sm hidden-md">
+    
+        {% include 'inc/newsletter.html' %}
+      </div>
+
+
+{% endblock  %}

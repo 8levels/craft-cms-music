@@ -1,0 +1,19 @@
+{#
+ # Contact template
+ # -----------------
+ #
+
+-#}
+
+{% extends "_layout" %}
+{% set title = "Contact" %}
+
+{% block body %}
+
+    {% for entry in craft.entries.section('contact') %}
+    {{ entry.body }}
+    {% endfor %} 
+
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{#
+ # Newsletter template
+ # -----------------
+ #
+
+-#}
+
+{% extends "_layout" %}
+{% set title = "Newsletter" %}
+
+{% block body %}
+
+<section class="newsletter">  
+  <div class="container">
+    <div class="row">
+    	<div class="col-md-6">
+			{% if craft.request.lastSegment == "thanks" %}
+			THX
+			{% elseif craft.request.lastSegment == "bye" %}   
+			   KTHXBAI
+			   {% include 'inc/newsletter.html' %}
+			{% endif %}    		
+    	</div>
+
+    </div>
+  </div>
+ </section> 
+
+
+{% endblock %}

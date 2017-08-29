@@ -1,0 +1,40 @@
+{#
+ # Music template
+ # -----------------
+ #
+
+-#}
+
+{% extends "_layout" %}
+{% set title = "Music" %}
+
+{% block body %}
+
+
+<section class="footer-over music">  
+  <div class="container">
+   
+<!--   music top entry-->
+      {% for entry in craft.entries.section('music').order('releaseDate desc').limit(1) %}
+
+   
+    {% include "inc/album-entry" %}
+      
+    
+     {% endfor %}
+<!--    /music top entry-->
+    
+    
+{% include "inc/album-list" %}
+  </div>
+ </section> 
+
+{% endblock %}
+
+
+{% block footer %}
+{{ parent() }}
+<script>
+//blah   
+</script>
+{% endblock %}

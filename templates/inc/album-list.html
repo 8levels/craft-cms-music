@@ -1,0 +1,11 @@
+
+    {% for entry in craft.entries.section('music') %}
+        <div class="col-md-4 col-xs-6 filtr-item"  data-category="{{ entry.albumType }}" data-sort="value"><a href="{{ entry.url }}" class="music-cover-link ">
+        <div class="music-hover">&nbsp;</div> 
+        {% set image = entry.cover.first() %}
+        {% if image %}
+            <img src="{{ image.url() }}" alt="{{ image.title }}" class="img-responsive music-cover hvr-grow">
+        {% endif %}        
+        </a></div>
+    {% endfor %}
+       

@@ -1,0 +1,50 @@
+{#
+ # Layout template
+ # ---------------
+ #}
+<!doctype html>
+<!--[if IE 8]>         <html class="no-js lt-ie9 ie8" lang=""> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10 ie9" lang=""> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+{% block head %}
+
+    <title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+
+{% endblock %}
+</head>
+<body {% if bodyClass is defined %}class="{{ bodyClass }}"{% endif %}>
+
+
+{% block body %}{% endblock %}
+{% block footer %}
+<footer class="footer">
+
+</footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="/js/plugins.js"></script>
+    <script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+    </script>
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e73e97658accd64"></script> 	
+	
+{% endblock %}
+
+
+</body>
+</html>
+

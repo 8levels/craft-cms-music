@@ -1,0 +1,45 @@
+{#
+ # Videos template
+ # -----------------
+ #
+
+-#}
+
+{% extends "_layout" %}
+{% set title = "Videos" %}
+
+{% block body %}
+
+
+  <section class="container videos footer-over">
+      <div class="row">
+   
+        {% for entry in craft.entries.section('videos').limit(1).order('postDate desc') %}
+        {% set video = craft.embedder.url(entry.videoUrl) %}           
+        <div class="col-md-12">
+         <h1>{{ entry.title }}</h1>
+          <div class="embed-responsive embed-responsive-16by9">
+<!--            <iframe class="embed-responsive-item"  src="" frameborder="0" allowfullscreen></iframe>-->
+              {{ video.embed_code }}
+          </div>
+
+        </div>
+        {% endfor %}
+        
+        
+      </div>
+      <div class="row video-thumbs">
+      <div class="col-md-12 subsection-header"><h2>VIDEOS</h2></div>
+       {% for entry in craft.entries.section('videos').order('postDate desc') %}
+       {% set video = craft.embedder.url(entry.videoUrl) %}   
+        <div class="col-md-4 col-sm-6">
+            <div class="img-poster">
+            <button class="img-poster-btn btn-lg hvr-radial-out"><a href="{{ entry.url }}">{{ entry.title }}</a></button>
+            <img class="img-responsive" src="{{ video.video_highres }}"></div>
+        </div>
+        {% endfor %}
+
+    </div>
+  </section>
+
+{% endblock %}
