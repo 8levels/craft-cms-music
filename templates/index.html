@@ -9,31 +9,20 @@
 
 {% block body %}
 
-    <a href="" class=""><img src="imglogo.png" alt="" class="img-responsive"></a>
-
-            {% for entry in craft.entries.section('tour').order('date asc') if entry.date > now %}
-                 {{ entry.date.format('D') }} {{ entry.date.format('d') }}<br>
-                {{ entry.date.format('M') }}<br>
-                {{ entry.date.format('Y') }}<br>
-                {{ entry.venue }}<br>
-                {{ entry.title }}<br>
-                <a href="{{ entry.ticketUrl }}" class="tickets">TICKETS</a>
-            {% endfor %} 
-
 
    
-        {% include 'inc/newsletter.html' %}
-        
-        <ul class="sidenav-news list-unstyled">
-        
-         {% for entry in craft.entries.section('news').limit(5).order('postDate desc') %}   
-          <li>
-            <a href="{{ entry.url }}" class="hvr-grow">{{ entry.title }}</a>
-            <time pubdate datetime="{{ entry.postDate.format('Y-F-d') }}">{{ entry.postDate.format('F d, Y') }}</time>
-          </li>
-        {% endfor %}
+    <h1>home</h1>
 
-        </ul>
+    <ul class="sidenav-news list-unstyled">
+
+     {% for entry in craft.entries.section('news').limit(5).order('postDate desc') %}   
+      <li>
+        <a href="{{ entry.url }}">{{ entry.title }}</a>
+        <time pubdate datetime="{{ entry.postDate.format('Y-F-d') }}">{{ entry.postDate.format('F d, Y') }}</time>
+      </li>
+    {% endfor %}
+
+    </ul>
         
 
 

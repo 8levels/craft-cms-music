@@ -10,7 +10,7 @@
 
 {% block body %}
 
-
+<h1>photos</h1>
     {% set entries = craft.entries.section('photos').limit(10) %}     
     <div class="row" id="paginate_content">
      {% paginate entries as entriesOnPage %}
